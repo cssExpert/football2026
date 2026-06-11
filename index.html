@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>FOOTBALL 2026 — The World Comes to Play</title>
+	<meta name="description" content="48 teams. 104 matches. Three nations. The biggest football tournament ever staged arrives in North America, June 2026." />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+	<link rel="stylesheet" href="css/style.css" />
+
+	<script type="importmap">
+	{ "imports": { "three": "./lib/three.module.js" } }
+	</script>
+</head>
+<body>
+
+<!-- Cinematic loader -->
+<div class="loader" id="loader" aria-hidden="true">
+	<div class="loader__inner">
+		<p class="loader__brand">FOOTBALL <span>2026</span></p>
+		<p class="loader__count" id="loaderCount">00</p>
+		<div class="loader__bar"><span id="loaderBar"></span></div>
+	</div>
+</div>
+
+<!-- WebGL stage -->
+<canvas id="stage" aria-hidden="true"></canvas>
+
+<!-- Atmosphere overlays -->
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Navigation -->
+<header class="nav" id="nav">
+	<a class="nav__logo" href="#hero" aria-label="Football 2026 home">
+		<span class="nav__mark" aria-hidden="true">F26</span>
+		<span class="nav__name">FOOTBALL&nbsp;2026</span>
+	</a>
+	<nav class="nav__links" aria-label="Primary">
+		<a href="#nations">Host Nations</a>
+		<a href="#cities">Cities</a>
+		<a href="#schedule">Schedule</a>
+		<a href="#teams">Teams</a>
+	</nav>
+	<a class="nav__cta" href="#tickets">Get Tickets</a>
+</header>
+
+<main>
+	<!-- HERO -->
+	<section class="hero" id="hero">
+		<div class="hero__content">
+			<p class="hero__kicker" data-reveal>
+				<span class="hero__dot" aria-hidden="true"></span> North America &middot; June 11 — July 19, 2026
+			</p>
+
+			<h1 class="hero__title">
+          <span class="hero__line"><span class="hero__word" data-split>FOOTBALL</span></span>
+          <span class="hero__line"><span class="hero__word hero__word--gold" data-split>2026</span></span>
+        </h1>
+
+			<p class="hero__sub" data-reveal>
+				The biggest tournament ever staged. Forty-eight nations cross three borders chasing one trophy — and the whole planet is watching.
+			</p>
+
+			<div class="hero__cta-row" data-reveal>
+				<a class="btn btn--gold" href="#tickets">
+            Get Tickets
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+				<a class="btn btn--ghost" href="#nations">
+					<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+						<path d="M8 5.5v13l11-6.5z" />
+					</svg>
+					Watch the Film
+				</a>
+			</div>
+		</div>
+
+		<ul class="hero__stats" aria-label="Tournament facts">
+			<li data-reveal><strong>48</strong><span>Teams</span></li>
+			<li data-reveal><strong>104</strong><span>Matches</span></li>
+			<li data-reveal><strong>16</strong><span>Host Cities</span></li>
+			<li data-reveal><strong>3</strong><span>Nations</span></li>
+		</ul>
+
+		<div class="hero__scroll" aria-hidden="true">
+			<span class="hero__scroll-line"></span>
+			<span class="hero__scroll-label">Scroll</span>
+		</div>
+	</section>
+
+	<!-- MARQUEE -->
+	<div class="marquee" aria-hidden="true">
+		<div class="marquee__track">
+			<div class="marquee__group">
+				<span>United 2026</span><i></i><span>48 Teams</span><i></i><span>104 Matches</span><i></i>
+				<span>16 Cities</span><i></i><span>3 Nations</span><i></i><span>1 Trophy</span><i></i>
+			</div>
+			<div class="marquee__group">
+				<span>United 2026</span><i></i><span>48 Teams</span><i></i><span>104 Matches</span><i></i>
+				<span>16 Cities</span><i></i><span>3 Nations</span><i></i><span>1 Trophy</span><i></i>
+			</div>
+		</div>
+	</div>
+
+	<!-- HOST NATIONS -->
+	<section class="story" id="nations">
+		<p class="story__kicker" data-reveal>The Stage Is Set</p>
+		<h2 class="story__title" data-reveal>Three nations. One game.</h2>
+		<p class="story__sub" data-reveal>
+			For the first time in history, the tournament spans an entire continent. From Mexico City's Azteca to MetLife's final whistle.
+		</p>
+
+		<div class="story__cards">
+			<article class="card" data-card>
+				<span class="card__index" aria-hidden="true">01</span>
+				<h3>United States</h3>
+				<p>Eleven cities, sixty matches, and the final under the New York / New Jersey lights.</p>
+				<span class="card__tag">60 Matches</span>
+			</article>
+			<article class="card" data-card>
+				<span class="card__index" aria-hidden="true">02</span>
+				<h3>Mexico</h3>
+				<p>The Azteca becomes the first stadium ever to open three World Cups.</p>
+				<span class="card__tag">13 Matches</span>
+			</article>
+			<article class="card" data-card>
+				<span class="card__index" aria-hidden="true">03</span>
+				<h3>Canada</h3>
+				<p>Toronto and Vancouver host the nation's first men's World Cup matches on home soil.</p>
+				<span class="card__tag">13 Matches</span>
+			</article>
+		</div>
+	</section>
+
+	<!-- HOST CITIES — horizontal journey -->
+	<section class="cities" id="cities">
+		<div class="cities__pin">
+			<header class="cities__head">
+				<p class="story__kicker" data-reveal>The Journey</p>
+				<h2 class="story__title" data-reveal>Sixteen cities of light</h2>
+				<p class="cities__hint" data-reveal aria-hidden="true">Keep scrolling — the journey moves sideways</p>
+			</header>
+
+			<div class="cities__viewport">
+				<div class="cities__track" id="citiesTrack">
+					<article class="city" data-city>
+						<span class="city__num" aria-hidden="true">01</span>
+						<span class="city__badge city__badge--red">Opening Match · June 11</span>
+						<h3>Mexico<br>City</h3>
+						<p class="city__meta">Estadio Azteca · Mexico</p>
+						<p class="city__desc">The cathedral of football opens its third World Cup — no stadium on earth has done it before.</p>
+					</article>
+					<article class="city" data-city>
+						<span class="city__num" aria-hidden="true">02</span>
+						<span class="city__badge">West Coast Stage</span>
+						<h3>Los<br>Angeles</h3>
+						<p class="city__meta">SoFi Stadium · USA</p>
+						<p class="city__desc">A $5 billion arena under a translucent roof. Hollywood gets its football blockbuster.</p>
+					</article>
+					<article class="city" data-city>
+						<span class="city__num" aria-hidden="true">03</span>
+						<span class="city__badge">9 Matches</span>
+						<h3>Dallas</h3>
+						<p class="city__meta">AT&amp;T Stadium · USA</p>
+						<p class="city__desc">More matches than any other city — including a semi-final beneath the world's biggest screen.</p>
+					</article>
+					<article class="city" data-city>
+						<span class="city__num" aria-hidden="true">04</span>
+						<span class="city__badge">Semi-Final</span>
+						<h3>Atlanta</h3>
+						<p class="city__meta">Mercedes-Benz Stadium · USA</p>
+						<p class="city__desc">The falcon-winged roof opens for one of the loudest buildings in world sport.</p>
+					</article>
+					<article class="city" data-city>
+						<span class="city__num" aria-hidden="true">05</span>
+						<span class="city__badge">Bronze Final</span>
+						<h3>Miami</h3>
+						<p class="city__meta">Hard Rock Stadium · USA</p>
+						<p class="city__desc">South Beach heat, South American noise. The third-place battle lands in football's most Latin US city.</p>
+					</article>
+					<article class="city" data-city>
+						<span class="city__num" aria-hidden="true">06</span>
+						<span class="city__badge">First on Home Soil</span>
+						<h3>Toronto</h3>
+						<p class="city__meta">BMO Field · Canada</p>
+						<p class="city__desc">Canada's men play a World Cup match at home for the first time in history.</p>
+					</article>
+					<article class="city" data-city>
+						<span class="city__num" aria-hidden="true">07</span>
+						<span class="city__badge">Pacific Gateway</span>
+						<h3>Vancouver</h3>
+						<p class="city__meta">BC Place · Canada</p>
+						<p class="city__desc">Mountains, ocean, and a retractable roof — the tournament's most cinematic backdrop.</p>
+					</article>
+					<article class="city city--final" data-city>
+						<span class="city__num" aria-hidden="true">16</span>
+						<span class="city__badge city__badge--gold">The Final · July 19</span>
+						<h3>New York<br>New Jersey</h3>
+						<p class="city__meta">MetLife Stadium · USA</p>
+						<p class="city__desc">82,500 seats. One trophy. The biggest final in the history of the game.</p>
+					</article>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SCHEDULE -->
+	<section class="schedule" id="schedule">
+		<p class="story__kicker" data-reveal>39 Days of Football</p>
+		<h2 class="story__title" data-reveal>The road to the final</h2>
+
+		<ol class="timeline">
+			<span class="timeline__progress" id="timelineProgress" aria-hidden="true"></span>
+			<li class="timeline__item" data-tl>
+				<span class="timeline__date">Jun 11</span>
+				<div class="timeline__body">
+					<h3>Opening Match</h3>
+					<p>Mexico kick off at a sold-out Estadio Azteca, Mexico City.</p>
+				</div>
+			</li>
+			<li class="timeline__item" data-tl>
+				<span class="timeline__date">Jun 11 – 27</span>
+				<div class="timeline__body">
+					<h3>Group Stage</h3>
+					<p>Twelve groups of four. Seventy-two matches across all sixteen cities.</p>
+				</div>
+			</li>
+			<li class="timeline__item" data-tl>
+				<span class="timeline__date">Jun 28 – Jul 3</span>
+				<div class="timeline__body">
+					<h3>Round of 32</h3>
+					<p>A brand-new knockout round. From here, every match is sudden death.</p>
+				</div>
+			</li>
+			<li class="timeline__item" data-tl>
+				<span class="timeline__date">Jul 4 – 11</span>
+				<div class="timeline__body">
+					<h3>Round of 16 &amp; Quarter-Finals</h3>
+					<p>Independence Day football, then eight become four.</p>
+				</div>
+			</li>
+			<li class="timeline__item" data-tl>
+				<span class="timeline__date">Jul 14 – 15</span>
+				<div class="timeline__body">
+					<h3>Semi-Finals</h3>
+					<p>Dallas and Atlanta decide who plays for everything.</p>
+				</div>
+			</li>
+			<li class="timeline__item timeline__item--final" data-tl>
+				<span class="timeline__date">Jul 19</span>
+				<div class="timeline__body">
+					<h3>The Final</h3>
+					<p>MetLife Stadium, New York / New Jersey. One nation lifts the trophy.</p>
+				</div>
+			</li>
+		</ol>
+	</section>
+
+	<!-- TEAMS -->
+	<section class="teams" id="teams">
+		<p class="story__kicker" data-reveal>48 Nations</p>
+		<h2 class="story__title" data-reveal>The contenders</h2>
+		<p class="story__sub" data-reveal>
+			Champions, debutants and dark horses. The largest field the World Cup has ever seen.
+		</p>
+
+		<div class="teams__marquee" aria-hidden="true">
+			<div class="teams__row">
+				<div class="teams__group">
+					<span>Argentina</span><span>Brazil</span><span>France</span><span>England</span>
+					<span>Spain</span><span>Germany</span><span>Portugal</span><span>Netherlands</span>
+					<span>Uruguay</span><span>Croatia</span><span>Belgium</span><span>Colombia</span>
+				</div>
+				<div class="teams__group">
+					<span>Argentina</span><span>Brazil</span><span>France</span><span>England</span>
+					<span>Spain</span><span>Germany</span><span>Portugal</span><span>Netherlands</span>
+					<span>Uruguay</span><span>Croatia</span><span>Belgium</span><span>Colombia</span>
+				</div>
+			</div>
+		</div>
+		<div class="teams__marquee" aria-hidden="true">
+			<div class="teams__row teams__row--reverse">
+				<div class="teams__group">
+					<span>USA</span><span>Mexico</span><span>Canada</span><span>Japan</span>
+					<span>Morocco</span><span>Senegal</span><span>South Korea</span><span>Australia</span>
+					<span>Ecuador</span><span>Switzerland</span><span>Ghana</span><span>Norway</span>
+				</div>
+				<div class="teams__group">
+					<span>USA</span><span>Mexico</span><span>Canada</span><span>Japan</span>
+					<span>Morocco</span><span>Senegal</span><span>South Korea</span><span>Australia</span>
+					<span>Ecuador</span><span>Switzerland</span><span>Ghana</span><span>Norway</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- TICKETS -->
+	<section class="tickets" id="tickets">
+		<div class="tickets__glow" aria-hidden="true"></div>
+		<p class="story__kicker" data-reveal>The Final &middot; July 19, 2026 &middot; MetLife Stadium</p>
+		<h2 class="tickets__title" data-reveal>Be there when<br>history is made</h2>
+
+		<div class="countdown" id="countdown" role="timer" aria-label="Time remaining until the final">
+			<div class="countdown__unit" data-reveal><strong data-cd="d">--</strong><span>Days</span></div>
+			<div class="countdown__unit" data-reveal><strong data-cd="h">--</strong><span>Hours</span></div>
+			<div class="countdown__unit" data-reveal><strong data-cd="m">--</strong><span>Minutes</span></div>
+			<div class="countdown__unit" data-reveal><strong data-cd="s">--</strong><span>Seconds</span></div>
+		</div>
+
+		<div class="hero__cta-row tickets__cta" data-reveal>
+			<a class="btn btn--gold" href="#hero">
+          Get Tickets
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+		</div>
+	</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+	<div class="footer__top">
+		<div class="footer__brand">
+			<span class="nav__mark" aria-hidden="true">F26</span>
+			<p class="footer__name">FOOTBALL 2026</p>
+			<p class="footer__tag">The world comes to play.</p>
+		</div>
+		<nav class="footer__col" aria-label="Tournament">
+			<h3>Tournament</h3>
+			<a href="#nations">Host Nations</a>
+			<a href="#cities">Cities</a>
+			<a href="#schedule">Schedule</a>
+			<a href="#teams">Teams</a>
+		</nav>
+		<nav class="footer__col" aria-label="Experience">
+			<h3>Experience</h3>
+			<a href="#tickets">Tickets</a>
+			<a href="#hero">Hospitality</a>
+			<a href="#hero">Fan Festivals</a>
+			<a href="#hero">Volunteer</a>
+		</nav>
+		<nav class="footer__col" aria-label="Follow">
+			<h3>Follow</h3>
+			<a href="#hero">Newsletter</a>
+			<a href="#hero">Instagram</a>
+			<a href="#hero">YouTube</a>
+			<a href="#hero">X</a>
+		</nav>
+	</div>
+	<div class="footer__bottom">
+		<p>&copy; 2026 Football 2026 — a concept experience. Not affiliated with FIFA.</p>
+		<p>Built with Three.js &middot; GSAP &middot; Lenis</p>
+	</div>
+</footer>
+
+<script src="lib/gsap.min.js"></script>
+<script src="lib/ScrollTrigger.min.js"></script>
+<script src="lib/lenis.min.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+
+</html>
