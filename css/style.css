@@ -47,6 +47,12 @@ a { color: inherit; text-decoration: none; }
 }
 
 .loader__inner { text-align: center; }
+.loader__inner .nav__mark {
+	margin-inline: auto;
+	width: 5rem;
+	height: 5rem;
+	padding: 0.75rem;
+}
 
 .loader__brand {
   font-family: var(--font-display);
@@ -146,8 +152,10 @@ a { color: inherit; text-decoration: none; }
 .nav__mark {
   display: grid;
   place-items: center;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  padding: 0.25rem;
+  aspect-ratio: square;
   border-radius: 50%;
   font-family: var(--font-display);
   font-weight: 800;
