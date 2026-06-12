@@ -245,7 +245,7 @@ a { color: inherit; text-decoration: none; }
 .hero__title {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(4.2rem, 14vw, 12.25rem);
+  font-size: clamp(5.65rem, 14vw, 12.25rem);
   line-height: 0.88;
   text-transform: uppercase;
   letter-spacing: 0.01em;
@@ -319,7 +319,8 @@ a { color: inherit; text-decoration: none; }
 
 .hero__stats {
   list-style: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
   flex-wrap: wrap;
   gap: clamp(1.5rem, 4vw, 3.5rem);
   margin-top: clamp(3rem, 6vh, 5rem);
@@ -333,13 +334,13 @@ a { color: inherit; text-decoration: none; }
 .hero__stats strong {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+  font-size: clamp(4.25rem, 3.4vw, 2.8rem);
   line-height: 1;
   color: var(--text);
 }
 
 .hero__stats span {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
